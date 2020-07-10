@@ -5,13 +5,8 @@ const imagenesRouter = require('./imagenes');
 
 module.exports = function(app){
 
-  //  app.route('/public/documents')
-    //    .get(documentRouter.getDocuments)
-    
     app.get('/inicio',  (req,res) =>{           
-   
-            res.send("Inicio");
-           
+            res.send("Inicio");   
     } )
 
     app.route('/imagenes')
