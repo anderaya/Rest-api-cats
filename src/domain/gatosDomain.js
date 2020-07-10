@@ -52,10 +52,12 @@ const actualizarGato  = async (gato) => {
 
 const eliminarGato = async(id)=>{
     try {
-        let gato = await Gatos.findByIdAndRemove({
+        
+        
+        let gato = await Gatos.deleteOne({
             _id: mongoose.Types.ObjectId(id)
         })
-        return gato
+        return gato;
     } catch (error) {
         throw error;
     }

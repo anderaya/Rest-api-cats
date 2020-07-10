@@ -33,10 +33,12 @@ let getGato = async (id) => {
 
 let actualizarGato = async(body, id) => {
   try {
-    if(!_id||!body){
+    if(!id||!body){
         console.log("Sin Id");
         throw error;
     }
+    console.log(!id);
+    console.log(!body);
     let bodyGato = new Gatos({
         _id : id,
         nombre: body.nombre, 
@@ -46,6 +48,7 @@ let actualizarGato = async(body, id) => {
     })
     
     let gato = await GatosDomain.actualizarGato(bodyGato);
+    console.log(!gato);
     if(!gato){
         throw error
     }else{
@@ -84,14 +87,14 @@ let crearGato = async(body) => {
 const eliminarGato = async (id)=>{
   try {
 
-      if(!_id){
+      if(!id){
         console.log("Sin Id o body vacio");
         throw error;
     }
       
     let gato = await GatosDomain.eliminarGato(id);
     if(!gato){
-
+        throw error;
     }
      return gato;
       

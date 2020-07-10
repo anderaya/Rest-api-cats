@@ -40,7 +40,7 @@ let getGatos = async (req, res) => {
         console.log(gato);
         return res.status(200).send({data: gato});
       } catch (error) {
-        return res.status(404).send(err);
+        return res.status(404).send(error);
       }
   }
   
