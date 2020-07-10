@@ -13,7 +13,18 @@ const getGatos = async (queryParams) => {
     } 
 }
 
-const addGato = async (gato) => {
+const getGato = async (id) => {
+    try {
+        //esta linea cosulta por los parametros
+        let gatos = await Gatos.findById(mongoose.Types.ObjectId(id))
+        return gatos;
+    } catch (error) {
+        
+        throw error;
+    } 
+}
+
+const crearGato = async (gato) => {
     try {
         //esta linea agrega a la bd
         
@@ -26,7 +37,7 @@ const addGato = async (gato) => {
 }
 
 
-const updateAuthorById  = async (gato) => {
+const actualizarGato  = async (gato) => {
     try {   
         let newGato= await Gatos.updateOne({
             _id : mongoose.Types.ObjectId(gato._id)
@@ -41,8 +52,9 @@ const updateAuthorById  = async (gato) => {
 
 const eliminarGato = async(id)=>{
     try {
-        let gato = await Gatos.dele
-        let gato = await Gatos.findById(mongoose.Types.ObjectId(id))
+        let gato = await Gatos.findByIdAndRemove({
+            _id: mongoose.Types.ObjectId(id)
+        })
         return gato
     } catch (error) {
         throw error;
@@ -54,5 +66,5 @@ const eliminarGato = async(id)=>{
 
 
 module.exports = {
-    addAuthor,getAuthors, getAuthorById,updateAuthorById
+    getGatos,getGato,actualizarGato,eliminarGato,crearGato
 }

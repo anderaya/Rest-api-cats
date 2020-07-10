@@ -1,7 +1,5 @@
 'use strict';
 
-const { response } = require("express");
-
 const gatosRouter = require('./gatos');
 const imagenesRouter = require('./imagenes');
 

@@ -4,8 +4,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const gatosSchema = new Schema({
-  name : {
-      nombre: String,
+  nombre : {
+      type: String,
       required: true
     },
   raza : {
@@ -24,7 +24,7 @@ const gatosSchema = new Schema({
 
   
   
-let Gatos = mongoose.model('gatos', brachSchema, 'gatos');
+let Gatos = mongoose.model('gatos', gatosSchema, 'gatos');
 
 
 module.exports = Gatos;

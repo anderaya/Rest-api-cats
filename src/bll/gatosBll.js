@@ -6,8 +6,8 @@ const Gatos = require('../models/gatos');
 
 let getGatos = async (body) => {
     try {
-        let query = filters ? filters : {};
-        let listaGatos = await gatosDomain.getGatos(query);
+        let query = body ? body : {};
+        let listaGatos = await GatosDomain.getGatos(query);
         return listaGatos;
       } catch (error) {
         throw error;
@@ -17,7 +17,7 @@ let getGatos = async (body) => {
 
 let getGato = async (id) => {
     try {
-        let gato = await gatosDomain.getGato(id);
+        let gato = await GatosDomain.getGato(id);
         if(!gato){
             throw error 
         }else{  
@@ -37,15 +37,15 @@ let actualizarGato = async(body, id) => {
         console.log("Sin Id");
         throw error;
     }
-    let gato = new Gatos({
+    let bodyGato = new Gatos({
         _id : id,
-        name: body.name, 
+        nombre: body.nombre, 
         raza: body.raza,
         edad: body.edad, 
         foto: body.foto
     })
     
-    let gato = await GatosDomain.actualizarGato(gato);
+    let gato = await GatosDomain.actualizarGato(bodyGato);
     if(!gato){
         throw error
     }else{
@@ -57,19 +57,20 @@ let actualizarGato = async(body, id) => {
 }
 
 let crearGato = async(body) => {
+
     try {
         if(!body){
             console.log("Body vacio");
             throw error;
         }
 
-      let gato = new Gatos({
-          name: body.name, 
+      let bodyGato = new Gatos({
+          nombre: body.nombre, 
           raza: body.raza,
           edad: body.edad, 
           foto: body.foto
       })
-      let gato = await GatosDomain.crearGato(gato);
+      let gato = await GatosDomain.crearGato(bodyGato);
       return gato;
       
     } catch (error) {
