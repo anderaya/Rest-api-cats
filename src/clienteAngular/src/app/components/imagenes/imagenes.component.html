@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <nav>
+        <a mat-button routerLink="/inicio" routerLinkActive="active">Inicio</a>
+        <a mat-button routerLink="/imagenes" routerLinkActive="active">Imagenes</a>
+        <a mat-button routerLink="/gatos" routerLinkActive="active">Gatos</a>
+    </nav>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<a>Imagenes</a>
+
+<mat-grid-list cols="5" rowHeight="1:1" >
+  
+    <mat-grid-tile></mat-grid-tile>
+    
+
+</mat-grid-list>
+
+{{imagenes[0].url}}

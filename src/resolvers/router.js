@@ -6,9 +6,10 @@ const imagenesRouter = require('./imagenes');
 module.exports = function(app){
 
     app.get('/inicio',  (req,res) =>{           
-            res.send("Inicio");   
+            res.render("inicio.html");   
     } )
 
+    //api
     app.route('/imagenes')
         .get(imagenesRouter.getImagenes)
     app.route('/imagenes/favoritos')
