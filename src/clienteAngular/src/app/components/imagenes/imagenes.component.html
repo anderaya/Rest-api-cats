@@ -8,13 +8,22 @@
     </mat-toolbar-row>
 </mat-toolbar>
 
-<a>Imagenes</a>
+<p>Imagenes</p>
 
-<mat-grid-list cols="5" rowHeight="1:1" >
-  
-    <mat-grid-tile></mat-grid-tile>
+<mat-grid-list cols="5"  rowHeight="1:1.5" >
+    <div *ngFor="let imagenes of imagenes">
+        <mat-grid-tile >
+         
+
+            <div><img src="{{imagenes.url}}" alt="" >
+            <button mat-button (click)="anadirFavorito(imagenes.id)">Añadir a favoritos</button>
+            
+            </div>
+          
+            
+        </mat-grid-tile>
+    </div>
+   
     
 
 </mat-grid-list>
-
-{{imagenes[0].url}}

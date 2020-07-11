@@ -1,0 +1,77 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <nav>
+        <a mat-button routerLink="/inicio" routerLinkActive="active">Inicio</a>
+        <a mat-button routerLink="/imagenes" routerLinkActive="active">Imagenes</a>
+        <a mat-button routerLink="/gatos" routerLinkActive="active">Gatos</a>
+    </nav>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<p>Crear Gato</p>
+
+
+<body>
+    <section class="contenedor" id="contendor">
+        <div id="lista">
+        
+            <mat-grid-list cols="4"  rowHeight="1:1.5" >
+                <div *ngFor="let imagenes of imagenes">
+                    <mat-grid-tile >
+                     
+            
+                        <div><img src="{{imagenes.image.url}}" alt="" (click)="getFoto(imagenes.image.url)"> 
+                        
+                        </div>
+                      
+                        
+                    </mat-grid-tile>
+                </div>
+            </mat-grid-list>
+               
+        </div>
+    
+    </section>
+     
+</body>
+
+
+
+<div id="formulario">
+   
+      <form [formGroup]="form" (ngSubmit)="crearGato()" >
+
+            
+            <div>
+                <mat-form-field class="example-form-field">
+                    <mat-label>Nombre</mat-label>
+                        <input required  matInput placeholder="" formControlName="nombre" requerid minlength="5">
+                </mat-form-field>
+    
+                <mat-form-field class="example-form-field">
+                    <mat-label>Edad</mat-label>
+                        <input required minlength="1" id="edad" name="edad" matInput placeholder="" formControlName="edad">
+                </mat-form-field>
+    
+                <mat-form-field class="example-form-field">
+                    <mat-label>Raza</mat-label>
+                        <input required minlength="5" matInput placeholder="" formControlName="raza">
+                </mat-form-field> 
+
+                <mat-form-field class="example-form-field">
+                    <mat-label>Imagen</mat-label>
+                        <input required minlength="1" matInput placeholder="" formControlName="foto">
+                </mat-form-field> 
+
+                
+
+            </div>
+            <button mat-raised-button  routerLink="/gatos" routerLinkActive="active">Cancelar</button>
+            <button mat-raised-button color="blue">Crear gato</button>
+      </form>
+       
+</div>
+
+    
+
+

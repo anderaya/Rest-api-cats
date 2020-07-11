@@ -1,0 +1,53 @@
+:host {
+
+}
+
+mat-grid-list{
+
+    border:1px solid black;
+    margin:2px;
+    display: block;
+    background-color : cornflowerblue;
+ 
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10;
+}
+
+div{
+    text-align:center;
+}
+
+img{
+    border:1px solid black;
+    margin:2px;
+    border-radius: 1px;
+    
+    width: 200px;
+    height: 200px;
+
+}
+
+p{
+    display: block;
+    margin-top: 1em;
+  
+    text-indent: 30px;
+    font-size: 30px;
+
+}
+
+button{
+    background-color: wheat;
+}
+a#botonC {
+    position: absolute;
+    left: 120px;
+    top: 80px;
+    background-color: red;
+
+  }
+
+button#eliminar{
+    text-indent: 30px;
+}

@@ -1,6 +1,6 @@
 import { ArrayType } from '@angular/compiler';
 
 export class Imagenes{
-    id: String;;
+    id: String;
     url: String;
 }

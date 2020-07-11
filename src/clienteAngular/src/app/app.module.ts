@@ -18,24 +18,32 @@ import {MatButtonModule} from '@angular/material/button';
 import {MaterialModule} from './material/material.module';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { CrearGatoComponent } from './components/crear-gato/crear-gato.component';
+import { ActualizarGatoComponent } from './components/actualizar-gato/actualizar-gato.component';
+import {MatInputModule} from '@angular/material/input';
+import { ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     GatosComponent,
     InicioComponent,
-    ImagenesComponent
+    ImagenesComponent,
+    CrearGatoComponent,
+    ActualizarGatoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
     MatToolbarModule,
     MatButtonModule,
-    MatGridListModule
+    MatGridListModule,
+    MatInputModule
   ],
   providers: [GatosService],
   bootstrap: [AppComponent]

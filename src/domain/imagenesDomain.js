@@ -38,7 +38,6 @@ const buscarImagen = async(id,owner)=>{
         )
            .then(res => res.json())
            .then(json => json);
-           console.log(imagen)
        return imagen;
    }catch (error) {
       
@@ -51,12 +50,15 @@ const getFavoritos = async(query) => {
     try {      
         
 
-         const favoritos= await fetch('https://api.thecatapi.com/v1/favourites',
+         const favoritos= await fetch('https://api.thecatapi.com/v1/favourites?sub_id=f221c99b-304d-4404-b111-cbd3ddccf31a',
         {method: 'GET',
         headers: {
              'x-api-key': 'f221c99b-304d-4404-b111-cbd3ddccf31a',
              "content-type": "application/json"
-             }
+             },
+        params:{
+            'sub_id':'f221c99b-304d-4404-b111-cbd3ddccf31a'
+        }
          })
             .then(res => res.json())
             .then(json => json);

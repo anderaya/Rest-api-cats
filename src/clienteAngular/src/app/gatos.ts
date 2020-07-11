@@ -4,7 +4,7 @@ export class Gatos{
     nombre: String;
     raza: String;
     edad: Number;
-    foto: URL;
+    foto: String;
     m?: Number;
 
 }

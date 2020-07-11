@@ -3,15 +3,32 @@
         <nav>
         <a mat-button routerLink="/inicio" routerLinkActive="active">Inicio</a>
         <a mat-button routerLink="/imagenes" routerLinkActive="active">Imagenes</a>
-        <a mat-button routerLink="/gatos" routerLinkActive="active">Gatos</a>
+        <a mat-button routerLink="/gatos" >Gatos</a>
     </nav>
     </mat-toolbar-row>
 </mat-toolbar>
 
-<mat-grid-list cols="5" rowHeight="1:1" >
-  
-    <mat-grid-tile><a>a</a></mat-grid-tile>
+<p>Gatos</p>
+   <a id="botonC" mat-button routerLink="/crearGato" routerLinkActive="active">Crear gato</a> 
+
+
+
+<mat-grid-list cols="4"  rowHeight="1:1.5" >
+    <div *ngFor="let gatos of gatos">
+        <mat-grid-tile >
+            <div>
+            <img src="{{gatos.foto}}">
+            <p>{{gatos.nombre}}</p>
+            <p>{{gatos.edad}}</p>
+            <p>{{gatos.raza}}</p>
+            <button mat-button id="Editar">Editar</button>
+            <a mat-button routerLink="/gatos"  mat-button id="Eliminar" (click)="eliminarGato(gatos._id) ">Eliminar</a>
+            </div>
+          
+            
+        </mat-grid-tile>
+    </div>
+   
     
 
 </mat-grid-list>
-{{ gatos[0]?.raza}}
