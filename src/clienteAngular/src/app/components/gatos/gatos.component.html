@@ -21,8 +21,11 @@
             <p>{{gatos.nombre}}</p>
             <p>{{gatos.edad}}</p>
             <p>{{gatos.raza}}</p>
-            <button mat-button id="Editar">Editar</button>
-            <a mat-button  mat-button id="Eliminar" (click)="eliminarGato(gatos._id) ">Eliminar</a>
+
+            <button mat-button id="Editar" (click)="actualizar(gatos._id)">Editar
+            </button>
+           
+            <button mat-button id="Eliminar" (click)="eliminarGato(gatos._id) ">Eliminar</button>
             </div>
           
             

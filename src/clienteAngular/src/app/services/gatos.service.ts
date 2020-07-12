@@ -26,7 +26,7 @@ export class GatosService {
     .pipe(map(res  => res));
   }
   updateGato(gato){
-    return this.http.put(`${this.domain}/gatos/${gato.id}`, gato)
+    return this.http.put(`${this.domain}/gatos/${gato._id}`, gato)
     .pipe(map(res  => res));
   }
   deleteGato(id){

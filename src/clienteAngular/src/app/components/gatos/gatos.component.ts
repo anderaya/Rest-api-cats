@@ -1,18 +1,28 @@
-import { Component, OnInit ,OnChanges } from '@angular/core';
+import { Component, OnInit ,OnChanges ,Output, EventEmitter} from '@angular/core';
 import { GatosService} from '../../services/gatos.service';
 import { Gatos } from '../../gatos';
 import { Router } from '@angular/router';
+import {Subject} from 'rxjs';
+import { ComunicationService } from '../../services/comunication.service'
+
 @Component({
   selector: 'app-gatos',
   templateUrl: './gatos.component.html',
   styleUrls: ['./gatos.component.scss']
 })
-export class GatosComponent implements OnInit, OnChanges {
+
+export class GatosComponent implements OnInit {
   gatos: Gatos[];
   gato: Gatos;
-  constructor(private gatosService: GatosService, private router: Router) {
+  
+  //exponer subject
+  
+  constructor(private gatosService: GatosService, private router: Router,
+    private comunicationService:ComunicationService) {
+    
    }
 
+   
   ngOnInit(): void {
     this.gatosService.getGatos()
    .subscribe(res => {
@@ -25,10 +35,13 @@ export class GatosComponent implements OnInit, OnChanges {
      );
   }
 
- ngOnChanges(){
-
+ actualizar(id:string){
+   
+  this.comunicationService.enviarMensaje(id);
+  this.router.navigate(['/actualizarGato']);
  }
 
+  // tslint:disable-next-line: typedef
   fetchGatos () {
     this.gatosService.getGatos()
    .subscribe(res => {
