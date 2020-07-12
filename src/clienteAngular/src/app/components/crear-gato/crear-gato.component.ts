@@ -1,9 +1,10 @@
-import { Component, OnInit, ɵExtraLocaleDataIndex } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {ImagenesService} from '../../services/imagenes.service';
-import { GatosService } from '../../services/gatos.service';
-import { ArrayImagen } from '../../arrayimagen';
+import {GatosService } from '../../services/gatos.service';
+import {ArrayImagen } from '../../arrayimagen';
 import {FormBuilder, Validators, FormGroup} from '@angular/forms';
 import {Gatos} from '../../gatos';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-crear-gato',
   templateUrl: './crear-gato.component.html',
@@ -12,18 +13,19 @@ import {Gatos} from '../../gatos';
 export class CrearGatoComponent implements OnInit {
 
 
-  constructor(private imagenesService:ImagenesService, private fb:FormBuilder, private gatosService:GatosService) { }
+  constructor(private imagenesService:ImagenesService, private fb:FormBuilder, private gatosService:GatosService,
+    private router: Router) { }
   imagenes: ArrayImagen[];
   
-  form:FormGroup;
+  myForm:FormGroup;
 
   ngOnInit(): void {
     this.getImagenes();
-    this.form= this.fb.group({
-      nombre: '',
-      edad: '',
-      raza: '',
-      foto: ''
+    this.myForm= this.fb.group({
+      nombre: ['',Validators.required],
+      edad: ['',Validators.required],
+      raza: ['',Validators.required],
+      foto: ['',Validators.required],
     });
   }
 
@@ -43,22 +45,24 @@ export class CrearGatoComponent implements OnInit {
  }
  
   getFoto(foto:String){
-  this.form.controls.foto.setValue(foto);
+  this.myForm.controls.foto.setValue(foto);
     this.ander=true;
   }
 
  crearGato(){
    const gatos : Gatos ={
-     edad:this.form.controls.edad.value,
-     nombre:this.form.controls.nombre.value,
-     foto:this.form.controls.foto.value,
-     raza:this.form.controls.raza.value
+     edad:this.myForm.controls.edad.value,
+     nombre:this.myForm.controls.nombre.value,
+     foto:this.myForm.controls.foto.value,
+     raza:this.myForm.controls.raza.value
    }
 
    if(this.ander=true){
     this.gatosService.addGato(gatos)
 .subscribe(res=> console.log(res));
 
+//ir a pagina gatos
+  this.router.navigate(['/gatos']);
   }
   
  }

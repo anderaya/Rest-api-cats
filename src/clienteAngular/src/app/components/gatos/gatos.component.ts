@@ -1,6 +1,7 @@
 import { Component, OnInit ,OnChanges } from '@angular/core';
 import { GatosService} from '../../services/gatos.service';
 import { Gatos } from '../../gatos';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-gatos',
   templateUrl: './gatos.component.html',
@@ -9,7 +10,7 @@ import { Gatos } from '../../gatos';
 export class GatosComponent implements OnInit, OnChanges {
   gatos: Gatos[];
   gato: Gatos;
-  constructor(private gatosService: GatosService) {
+  constructor(private gatosService: GatosService, private router: Router) {
    }
 
   ngOnInit(): void {
@@ -45,6 +46,8 @@ export class GatosComponent implements OnInit, OnChanges {
    .subscribe(res => {
      this.gato=res["data"];
      console.log(this.gato);
+
+     this.router.navigate(['/gatos']);
    })
  }
 }

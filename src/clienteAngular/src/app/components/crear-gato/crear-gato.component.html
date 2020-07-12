@@ -10,7 +10,6 @@
 
 <p>Crear Gato</p>
 
-
 <body>
     <section class="contenedor" id="contendor">
         <div id="lista">
@@ -22,9 +21,7 @@
             
                         <div><img src="{{imagenes.image.url}}" alt="" (click)="getFoto(imagenes.image.url)"> 
                         
-                        </div>
-                      
-                        
+                        </div>                       
                     </mat-grid-tile>
                 </div>
             </mat-grid-list>
@@ -39,7 +36,7 @@
 
 <div id="formulario">
    
-      <form [formGroup]="form" (ngSubmit)="crearGato()" >
+      <form [formGroup]="myForm" (ngSubmit)="crearGato()" >
 
             
             <div>
@@ -66,8 +63,8 @@
                 
 
             </div>
-            <button mat-raised-button  routerLink="/gatos" routerLinkActive="active">Cancelar</button>
-            <button mat-raised-button color="blue">Crear gato</button>
+            <button type="button" mat-raised-button routerLink="/gatos" routerLinkActive="active">Cancelar</button>
+            <button type="submit" mat-raised-button color="blue" [disabled]="myForm.invalid">Crear gato</button>
       </form>
        
 </div>
